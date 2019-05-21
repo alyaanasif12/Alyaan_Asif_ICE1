@@ -1,8 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//*
+// * To change this license header, choose License Headers in Project Properties.
+// * To change this template file, choose Tools | Templates
+// * and open the template in the editor.
+// */
 package ca.sheridancollege.week3.softwarefundamentals.ice1;
 
 /**
@@ -11,22 +11,46 @@ package ca.sheridancollege.week3.softwarefundamentals.ice1;
  * for the match to the user's card. To be used as starting code in ICE 1
  * @author Sivagami
  */
+import java.util.Scanner;
 public class CardTrick {
     
     public static void main(String[] args)
     {
-        Card[] magicHand = new Card[7];
         
+        Card[] magicHand = new Card[7];
+        System.out.println("7 cards Generating");
+           
         for (int i=0; i<magicHand.length; i++)
         {
+            
             Card c = new Card();
-            //c.setValue(insert call to random number generator here)
-            //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+          
+            c.setSuit(Card.SUITS[c.getRandomSuit()]);
+            c.setValue(c.getRandomVal());
+            magicHand[i] =c;
+            
+            System.out.println(magicHand[i].getSuit() + "\n" + magicHand[i].getValue());
+                   
         }
         
-        //insert code to ask the user for Card value and suit, create their card
-        // and search magicHand here
-        //Then report the result here
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the suit  ");
+        String suit = sc.nextLine();
+        System.out.println("Enter a value");
+        int val = sc.nextInt();
+        
+        boolean found = false;
+        for(int i =0;i<magicHand.length; i++) {
+            if(val == Card[i].getValue() && suit.equalsIgnoreCase(Card[i].getSuit())) {
+                found = true;
+                break;
+            }
+            
+        }
+   
+           if(found) { 
+               System.out.println("Youre Matching card");
+           }
     }
     
 }

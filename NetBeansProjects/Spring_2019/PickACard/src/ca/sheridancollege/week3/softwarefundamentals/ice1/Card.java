@@ -20,6 +20,7 @@ public class Card {
    private int value;//1-13
 
    public static final String [] SUITS = {"Hearts", "Diamonds", "Spades", "Clubs"};
+    int getRandomVal;
     /**
      * @return the suit
      */
@@ -48,6 +49,17 @@ public class Card {
         this.value = value;
     }
    
-   //Write two methods to generate random number of values and suits here
+    public int getRandomVal() {
+        int randomnum = (int)(Math.random()*13+1);
+           return randomnum;
+         
+    }
+    
+     public int getRandomSuit() {
+        int randomSuit = (int)(Math.random()*3+0);
+           return randomSuit;
+         
+    }
+    
     
 }
